@@ -19,6 +19,7 @@ namespace VisitRegistration
         {
             AuthorizationWindow authorizationWindow = new AuthorizationWindow(databaseConnection);
             authorizationWindow.Show();
+
         }
     }
 }
