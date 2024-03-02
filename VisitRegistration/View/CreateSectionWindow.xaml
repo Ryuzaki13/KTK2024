@@ -1,21 +1,18 @@
-﻿<Window x:Class="VisitRegistration.View.CreateLeadingWindow"
+﻿<Window x:Class="VisitRegistration.View.CreateSectionWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VisitRegistration.View"
         mc:Ignorable="d"
-        Title="CreateLeadingWindow" Height="300" Width="300">
+        Title="Создать мероприятие" Height="300" Width="300">
     <StackPanel Width="240" VerticalAlignment="Center" HorizontalAlignment="Center">
-        <Label Content="Фамилия"/>
-        <TextBox Text="{Binding LastName}"/>
+        <Label Content="Название кружка"/>
+        <TextBox Text="{Binding Name}"/>
+        <Label Content="Длительность"/>
+        <TextBox Text="{Binding Duration}"/>
         <Label Content="Имя"/>
-        <TextBox Text="{Binding FirstName}"/>
-        <Label Content="Отчество"/>
-        <TextBox Text="{Binding Patronymic}"/>
-        <Label Content="Телефон"/>
-        <TextBox Text="{Binding Phone}"/>
-             
+        <ComboBox SelectedItem="{Binding Leading}" Name="cbLeadings"></ComboBox>
         <Button Margin="0 10 0 0" Click="OnCreate" Content="Создать"/>
     </StackPanel>
 </Window>

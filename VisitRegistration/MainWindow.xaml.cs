@@ -6,20 +6,19 @@ namespace VisitRegistration
 {
     public partial class MainWindow : Window
     {
+        public static MainWindow Instance;
+
         private readonly TestEntities databaseConnection;
 
         public MainWindow()
         {
             InitializeComponent();
 
+            Instance = this;
+
             databaseConnection = new TestEntities();
-        }
 
-        private void OnClickAuthorization(object sender, RoutedEventArgs e)
-        {
-            AuthorizationWindow authorizationWindow = new AuthorizationWindow(databaseConnection);
-            authorizationWindow.Show();
-
+            AppFrame.Navigate(new AuthorizationPage(databaseConnection));
         }
     }
 }

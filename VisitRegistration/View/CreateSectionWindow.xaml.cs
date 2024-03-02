@@ -6,13 +6,17 @@ using VisitRegistration.Database;
 
 namespace VisitRegistration.View
 {
-    public partial class CreateLeadingWindow : Window
+    public partial class CreateSectionWindow : Window
     {
-        public CreateLeadingWindow(Leading leading)
+        public CreateSectionWindow(Section section, ObservableCollection<Leading> leadings)
         {
             InitializeComponent();
 
-            DataContext = leading;
+            DataContext = section;
+            cbLeadings.SetBinding(ComboBox.ItemsSourceProperty, new Binding()
+            {
+                Source = leadings
+            });
         }
 
         private void OnCreate(object sender, RoutedEventArgs e)

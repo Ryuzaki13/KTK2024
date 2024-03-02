@@ -5,11 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VisitRegistration"
         mc:Ignorable="d"
-        Title="MainWindow" Height="250" Width="300">
-    <Grid>
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button MinWidth="140" Margin="0 0 0 5" Content="Регистрация"/>
-            <Button Click="OnClickAuthorization" MinWidth="140" Margin="0 5 0 0" Content="Вход"/>
-        </StackPanel>
-    </Grid>
+        Title="MainWindow" Height="360" Width="600">
+    <Frame Name="AppFrame" NavigationUIVisibility="Hidden" />
 </Window>

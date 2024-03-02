@@ -1,0 +1,109 @@
+﻿<Page x:Class="VisitRegistration.View.AdminMainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:VisitRegistration.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AdminMainPage">
+
+    <Grid Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Блок упраления ведущими -->
+        <Grid Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <ListView Grid.Row="0"
+                  Grid.Column="0"
+                  ItemsSource="{Binding Leadings}"
+                  Name="lvLeadings">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="86"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+
+                            <Border Grid.Row="0"
+                        Grid.Column="0"
+                        Grid.RowSpan="2"
+                        Width="78" 
+                        Height="78" 
+                        CornerRadius="39" 
+                        Background="LightGray"/>
+
+                            <TextBlock Grid.Row="0"
+                           Grid.Column="1"
+                           VerticalAlignment="Center"
+                           Text="{Binding Phone}"></TextBlock>
+
+                            <TextBlock Grid.Row="1"
+                           Grid.Column="1"
+                            VerticalAlignment="Center">
+                        <Run Text="{Binding LastName}" />
+                        <Run Text="{Binding FirstName}" />
+                        <Run Text="{Binding Patronymic}" />
+                            </TextBlock>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical">
+                <Button Click="OnLeadingCreate" Margin="2" Content="Создать"/>
+                <Button Click="OnLeadingEdit" Margin="2" Content="Редактировать"/>
+                <Button Click="OnLeadingDelete" Margin="2" Content="Удалить"/>
+            </StackPanel>
+        </Grid>
+
+        <!-- Блок упраления мероприятиями -->
+        <Grid Grid.Column="1" Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <ListView Grid.Row="0"
+                Grid.Column="0"
+                ItemsSource="{Binding Sections}"
+                Name="lvSections">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock>
+                            <Run FontWeight="Bold" Text="Мероприятие:"/>
+                            <Run Text="{Binding Name}"/>
+                            <Run Text="{Binding Duration}"/>
+                            <Run Text="минут"/>
+                            <LineBreak/>
+                            <Run FontWeight="Bold" Text="Ведущий:"/>
+                            <Run Text="{Binding Leading.LastName}"/>
+                            <Run Text="{Binding Leading.FirstName}"/>
+                            <Run Text="{Binding Leading.Patronymic}"/>
+                            <Run Text="-"/>
+                            <Run Foreground="#666" Text="{Binding Leading.Phone}"/>
+                        </TextBlock>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical">
+                <Button Click="OnSectionCreate" Margin="2" Content="Создать"/>
+                <Button Click="OnSectionEdit" Margin="2" Content="Редактировать"/>
+                <Button Click="OnSectionDelete" Margin="2" Content="Удалить"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

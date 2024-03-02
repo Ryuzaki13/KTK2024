@@ -19,7 +19,8 @@ namespace VisitRegistration.Database
         {
             this.Visitors = new HashSet<Visitor>();
         }
-    
+
+
         public long ID { get; set; }
         public string Name { get; set; }
         public byte Duration { get; set; }
