@@ -13,5 +13,6 @@ namespace VisitRegistration
     /// </summary>
     public partial class App : Application
     {
+
     }
 }

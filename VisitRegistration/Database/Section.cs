@@ -19,12 +19,12 @@ namespace VisitRegistration.Database
         {
             this.Visitors = new HashSet<Visitor>();
         }
-
-
+    
         public long ID { get; set; }
         public string Name { get; set; }
         public byte Duration { get; set; }
         public long LeadingID { get; set; }
+        public System.DateTime StartTime { get; set; }
     
         public virtual Leading Leading { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

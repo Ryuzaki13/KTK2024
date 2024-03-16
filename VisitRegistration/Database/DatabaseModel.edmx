@@ -23,6 +23,7 @@
           <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Duration" Type="tinyint" Nullable="false" />
           <Property Name="LeadingID" Type="bigint" Nullable="false" />
+          <Property Name="StartTime" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="SectionVisitor">
           <Key>
@@ -121,6 +122,7 @@
           <Property Name="LeadingID" Type="Int64" Nullable="false" />
           <NavigationProperty Name="Leading" Relationship="Self.FK_Section_Leading" FromRole="Section" ToRole="Leading" />
           <NavigationProperty Name="Visitors" Relationship="Self.SectionVisitor" FromRole="Section" ToRole="Visitor" />
+          <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityType Name="Visitor">
           <Key>
@@ -182,6 +184,7 @@
           <EntitySetMapping Name="Sections">
             <EntityTypeMapping TypeName="TestModel.Section">
               <MappingFragment StoreEntitySet="Section">
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Duration" ColumnName="Duration" />

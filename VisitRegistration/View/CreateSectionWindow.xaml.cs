@@ -17,6 +17,8 @@ namespace VisitRegistration.View
             {
                 Source = leadings
             });
+
+           
         }
 
         private void OnCreate(object sender, RoutedEventArgs e)

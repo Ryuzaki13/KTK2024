@@ -19,12 +19,7 @@ namespace VisitRegistration.Database
         {
             this.Sections = new HashSet<Section>();
         }
-
-        public override string ToString()
-        {
-            return string.Format("{0} {1} {2}", LastName, FirstName, Patronymic);
-        }
-
+    
         public long ID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

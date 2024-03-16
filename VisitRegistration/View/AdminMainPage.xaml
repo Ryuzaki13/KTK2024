@@ -24,42 +24,8 @@
             <ListView Grid.Row="0"
                   Grid.Column="0"
                   ItemsSource="{Binding Leadings}"
-                  Name="lvLeadings">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="86"/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="1*"/>
-                                <RowDefinition Height="1*"/>
-                            </Grid.RowDefinitions>
-
-                            <Border Grid.Row="0"
-                        Grid.Column="0"
-                        Grid.RowSpan="2"
-                        Width="78" 
-                        Height="78" 
-                        CornerRadius="39" 
-                        Background="LightGray"/>
-
-                            <TextBlock Grid.Row="0"
-                           Grid.Column="1"
-                           VerticalAlignment="Center"
-                           Text="{Binding Phone}"></TextBlock>
-
-                            <TextBlock Grid.Row="1"
-                           Grid.Column="1"
-                            VerticalAlignment="Center">
-                        <Run Text="{Binding LastName}" />
-                        <Run Text="{Binding FirstName}" />
-                        <Run Text="{Binding Patronymic}" />
-                            </TextBlock>
-                        </Grid>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
+                  Name="lvLeadings"
+                  ItemTemplate="{StaticResource leadingItemTemplate}">
             </ListView>
 
             <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical">
@@ -79,24 +45,8 @@
             <ListView Grid.Row="0"
                 Grid.Column="0"
                 ItemsSource="{Binding Sections}"
-                Name="lvSections">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock>
-                            <Run FontWeight="Bold" Text="Мероприятие:"/>
-                            <Run Text="{Binding Name}"/>
-                            <Run Text="{Binding Duration}"/>
-                            <Run Text="минут"/>
-                            <LineBreak/>
-                            <Run FontWeight="Bold" Text="Ведущий:"/>
-                            <Run Text="{Binding Leading.LastName}"/>
-                            <Run Text="{Binding Leading.FirstName}"/>
-                            <Run Text="{Binding Leading.Patronymic}"/>
-                            <Run Text="-"/>
-                            <Run Foreground="#666" Text="{Binding Leading.Phone}"/>
-                        </TextBlock>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
+                Name="lvSections"
+                ItemTemplate="{StaticResource sectionItemTemplate}">
             </ListView>
 
             <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical">

@@ -12,7 +12,30 @@
         <Label Content="Длительность"/>
         <TextBox Text="{Binding Duration}"/>
         <Label Content="Имя"/>
-        <ComboBox SelectedItem="{Binding Leading}" Name="cbLeadings"></ComboBox>
+        <ComboBox SelectedItem="{Binding Leading}" Name="cbLeadings">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <Run Text="{Binding LastName}"/>
+                        <Run Text="{Binding FirstName}"/>
+                        <Run Text="{Binding Patronymic}"/>
+                    </TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Label Content="Дата и время начала"></Label>
+        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <DatePicker DisplayDate="" SelectedDate="{Binding StartTime}" Margin="0 0 2 0"></DatePicker>
+            <ComboBox Grid.Column="1" Margin="2 0"></ComboBox>
+            <ComboBox Grid.Column="2" Margin="2 0 0 0"></ComboBox>
+        </Grid>
         <Button Margin="0 10 0 0" Click="OnCreate" Content="Создать"/>
     </StackPanel>
 </Window>

@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using VisitRegistration.Database;
@@ -78,7 +79,10 @@ namespace VisitRegistration.View
 
         private void OnSectionCreate(object sender, RoutedEventArgs e)
         {
-            Section section = new Section();
+            Section section = new Section()
+            {
+                StartTime = DateTime.Now
+            };
 
             CreateSectionWindow leadingWindow = new CreateSectionWindow(section, Leadings);
 

@@ -5,7 +5,6 @@ using VisitRegistration.Database;
 
 namespace VisitRegistration.View
 {
-
     public partial class VisitorMainPage : Page
     {
         private readonly TestEntities databaseConnection;
